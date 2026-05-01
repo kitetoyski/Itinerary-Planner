@@ -27,15 +27,15 @@ export default function ItinerariesPage() {
   const handleCreate = () => {
     navigate('/itineraries/create');
   };
-  const handleDeleteItinerary = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this itinerary and all its expenses?")) return;
-    try {
-      await api.delete(`/${id}`);
-      setItineraries(itineraries.filter(it => it._id !== id));
-    } catch (err) {
-      console.error("Error deleting itinerary:", err);
-    }
-  };
+  // const handleDeleteItinerary = async (id) => {
+  //   if (!window.confirm("Are you sure you want to delete this itinerary and all its expenses?")) return;
+  //   try {
+  //     await api.delete(`/${id}`);
+  //     setItineraries(itineraries.filter(it => it._id !== id));
+  //   } catch (err) {
+  //     console.error("Error deleting itinerary:", err);
+  //   }
+  // };
   
   return (
     <Container sx={{ mt: 6 }}>

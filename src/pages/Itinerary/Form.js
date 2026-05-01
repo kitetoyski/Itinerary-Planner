@@ -68,11 +68,11 @@ export default function ItineraryForm() {
     setLocations([...locations, { location: '', days: [{ day: 1, activities: [{ time: '', activity: '' }] }] }]);
   const handleRemoveLocation = (index) => setLocations(locations.filter((_, i) => i !== index));
 
-  const handleDayChange = (locIndex, dayIndex, field, value) => {
-    const newLocations = [...locations];
-    newLocations[locIndex].days[dayIndex][field] = value;
-    setLocations(newLocations);
-  };
+  // const handleDayChange = (locIndex, dayIndex, field, value) => {
+  //   const newLocations = [...locations];
+  //   newLocations[locIndex].days[dayIndex][field] = value;
+  //   setLocations(newLocations);
+  // };
   const handleAddDay = (locIndex) => {
     const newLocations = [...locations];
     const nextDay = newLocations[locIndex].days.length + 1;

@@ -75,11 +75,11 @@ export default function ItineraryView() {
     setItinerary({ ...itinerary, locations: newLocations });
   };
 
-  const handleDayChange = (locIndex, dayIndex, field, value) => {
-    const newLocations = [...itinerary.locations];
-    newLocations[locIndex].days[dayIndex][field] = value;
-    setItinerary({ ...itinerary, locations: newLocations });
-  };
+  // const handleDayChange = (locIndex, dayIndex, field, value) => {
+  //   const newLocations = [...itinerary.locations];
+  //   newLocations[locIndex].days[dayIndex][field] = value;
+  //   setItinerary({ ...itinerary, locations: newLocations });
+  // };
 
   const handleAddDay = (locIndex) => {
     const newLocations = [...itinerary.locations];
