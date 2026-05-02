@@ -21,8 +21,6 @@ import {
   Zoom,
   Card,
   CardContent,
-  Stack,
-  Alert,
   Snackbar,
   CircularProgress,
   Tooltip,
@@ -38,8 +36,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import EventIcon from '@mui/icons-material/Event';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CancelIcon from '@mui/icons-material/Cancel';
+
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import EditIcon from '@mui/icons-material/Edit';
 import api from '../../api/api.helper';
@@ -56,16 +53,16 @@ const fadeInUp = keyframes`
   }
 `;
 
-const slideIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
+// const slideIn = keyframes`
+//   from {
+//     opacity: 0;
+//     transform: translateX(-30px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// `;
 
 // Styled Components
 const GradientBackground = styled(Box)(({ theme }) => ({
@@ -165,11 +162,11 @@ const StyledButton = styled(Button)(({ theme, variant }) => ({
   }),
 }));
 
-const InfoChip = styled(Chip)(({ theme, status }) => ({
-  fontWeight: 600,
-  ...(status === 'paid' && { bgcolor: '#22c55e', color: 'white' }),
-  ...(status === 'unpaid' && { bgcolor: '#f59e0b', color: 'white' }),
-}));
+// const InfoChip = styled(Chip)(({ theme, status }) => ({
+//   fontWeight: 600,
+//   ...(status === 'paid' && { bgcolor: '#22c55e', color: 'white' }),
+//   ...(status === 'unpaid' && { bgcolor: '#f59e0b', color: 'white' }),
+// }));
 
 export default function ItineraryView() {
   const { id } = useParams();
@@ -181,26 +178,46 @@ export default function ItineraryView() {
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
   const [newExpense, setNewExpense] = useState({ title: '', amount: '', date: new Date().toISOString().split('T')[0], paid: false, notes: '' });
 
+  // useEffect(() => {
+  //   fetchData();
+  // }, [id]);
+
+  // const fetchData = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const [itineraryRes, expensesRes] = await Promise.all([
+  //       api.get(`/${id}`),
+  //       api.get(`/${id}`)
+  //     ]);
+  //     setItinerary(itineraryRes.data);
+  //     setExpenses(expensesRes.data);
+  //   } catch (err) {
+  //     console.error('Error fetching data:', err);
+  //     setSnackbar({ open: true, message: 'Error loading itinerary', severity: 'error' });
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const [itineraryRes, expensesRes] = await Promise.all([
+          api.get(`/${id}`),
+          api.get(`/${id}`)
+        ]);
+        setItinerary(itineraryRes.data);
+        setExpenses(expensesRes.data);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        setSnackbar({ open: true, message: 'Error loading itinerary', severity: 'error' });
+      } finally {
+        setLoading(false);
+      }
+    };
+  
     fetchData();
   }, [id]);
-
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const [itineraryRes, expensesRes] = await Promise.all([
-        api.get(`/${id}`),
-        api.get(`/${id}`)
-      ]);
-      setItinerary(itineraryRes.data);
-      setExpenses(expensesRes.data);
-    } catch (err) {
-      console.error('Error fetching data:', err);
-      setSnackbar({ open: true, message: 'Error loading itinerary', severity: 'error' });
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleFieldChange = (field, value) => {
     setItinerary({ ...itinerary, [field]: value });

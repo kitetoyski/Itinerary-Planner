@@ -34,10 +34,7 @@ import EventIcon from '@mui/icons-material/Event';
 import TitleIcon from '@mui/icons-material/Title';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightIcon from '@mui/icons-material/Flight';
-import HotelIcon from '@mui/icons-material/Hotel';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import ReceiptIcon from '@mui/icons-material/Receipt';
+
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -45,7 +42,6 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import SaveIcon from '@mui/icons-material/Save';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import api from '../../api/api.helper';
 
 // Animations

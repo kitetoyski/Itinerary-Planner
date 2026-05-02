@@ -12,7 +12,6 @@ import {
   InputAdornment,
   Menu,
   MenuItem,
-  ListItemIcon,
   ListItemText,
   Fade,
   Skeleton,
@@ -33,7 +32,6 @@ import SortIcon from '@mui/icons-material/Sort';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import PaidIcon from '@mui/icons-material/Paid';
 import PendingIcon from '@mui/icons-material/Pending';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { keyframes, styled } from '@mui/system';
 import api from '../../api/api.helper';
@@ -95,7 +93,7 @@ export default function ExpensesPage() {
   useEffect(() => {
     fetchAllExpenses();
   }, []);
-
+  console.log(setSelectedExpense("sd"))
   useEffect(() => {
     let filtered = [...expenses];
     

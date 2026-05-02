@@ -25,9 +25,7 @@ import FlightIcon from '@mui/icons-material/Flight';
 import HotelIcon from '@mui/icons-material/Hotel';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import ReceiptIcon from '@mui/icons-material/Receipt';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import api from '../../api/api.helper';
 
 // Animations
@@ -42,17 +40,17 @@ const fadeInUp = keyframes`
   }
 `;
 
-const pulse = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-`;
+// const pulse = keyframes`
+//   0% {
+//     transform: scale(1);
+//   }
+//   50% {
+//     transform: scale(1.05);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// `;
 
 const StyledCard = styled(Card)(({ theme }) => ({
   background: 'linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%)',
